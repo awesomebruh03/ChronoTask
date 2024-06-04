@@ -29,7 +29,7 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
+                    <TextBlock x:Name="EmailValidation" Text="{Binding Email_Validation1}" Foreground="Crimson" Margin="178,-26,-27,33" Grid.Column="2" />
                     <TextBlock Text="User Name" Style="{StaticResource textBlock}"/>
                     <TextBlock Text="E-Mail" Grid.Row="1" Style="{StaticResource textBlock}"/>
                     <TextBlock Text="Password" Grid.Row="2" Style="{StaticResource textBlock}"/>

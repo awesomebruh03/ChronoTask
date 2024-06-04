@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -17,6 +18,7 @@ namespace ChronoTask
     
     public partial class SignUp : Window
     {
+        public string Email_Validation1 { get; set; } = "Enter A Valid Email";
         public SignUp()
         {
             InitializeComponent();
@@ -33,19 +35,28 @@ namespace ChronoTask
 
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
-                MessageBox.Show("All fields are required.");
+                EmailValidation.Text = "Please fill all the fields.";
+                Shake();
+                return;
+            }
+            if (!IsValidEmail(email))
+                {
+                EmailValidation.Text = "Please enter a valid email.";
+                Shake();
                 return;
             }
 
             if (password != confirmPassword)
             {
-                MessageBox.Show("Passwords do not match.");
+                EmailValidation.Text = "Passwords do not match.";
+                Shake();
                 return;
             }
 
             if (DatabaseHelper.EmailExists(email))
             {
-                MessageBox.Show("E-mail already exists in the database.");
+                EmailValidation.Text = "Email already exists.";
+                Shake();
                 return;
             }
 
@@ -58,6 +69,33 @@ namespace ChronoTask
 
             this.Close();
         }
-        
+        private void Shake()
+        {
+            var animation = new DoubleAnimationUsingKeyFrames();
+            animation.KeyFrames.Add(new EasingDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))));
+            animation.KeyFrames.Add(new EasingDoubleKeyFrame(-5, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(25))));
+            animation.KeyFrames.Add(new EasingDoubleKeyFrame(5, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(50))));
+            animation.KeyFrames.Add(new EasingDoubleKeyFrame(-5, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(75))));
+            animation.KeyFrames.Add(new EasingDoubleKeyFrame(5, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(100))));
+            animation.KeyFrames.Add(new EasingDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(125))));
+
+            var transform = new TranslateTransform();
+            EmailValidation.RenderTransform = transform;
+            EmailValidation.RenderTransformOrigin = new Point(0.5, 0.5);
+            transform.BeginAnimation(TranslateTransform.XProperty, animation);
+        }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

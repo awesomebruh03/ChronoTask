@@ -1,4 +1,6 @@
 ﻿<Window x:Class="ChronoTask.SignIn"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:ee="http://schemas.microsoft.com/expression/2010/effects"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -50,6 +52,7 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="EmailValidation" Text="{Binding Email_Validation}" Foreground="Crimson" Margin="51,-31,100,38" Grid.Column="2" />
                         <TextBlock x:Name="TextEmail" Text="E-mail"  Style="{StaticResource textMail}"/>
                         <TextBlock Text=": "  Grid.Column="1"  Style="{StaticResource textMail}"/>
                         <TextBox x:Name="textEmail" Style="{StaticResource TextboxMail}" Margin="0 0 0 0"/>

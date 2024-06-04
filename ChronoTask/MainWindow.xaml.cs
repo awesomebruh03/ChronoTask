@@ -21,7 +21,18 @@ namespace ChronoTask
             InitializeComponent();
             this.ResizeMode = ResizeMode.NoResize;
             this.ResizeMode = ResizeMode.CanMinimize;
+            
+        }
+        public void Windows_loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
             LoadProjects();
+        }
+
+        public void SignOutButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            SignIn SignIn = new SignIn();
+            this.Close();
+            SignIn.Show();
         }
 
         private void AddProjectButton_Click(object sender, RoutedEventArgs e)

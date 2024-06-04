@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChronoTask")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc8409ea4b65e6c319c8efa26ce9500ed7f6028a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c33c9cd8dafa027a00b8a2749f25c064af7aeac6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChronoTask")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChronoTask")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
