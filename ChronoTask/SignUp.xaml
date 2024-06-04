@@ -1,0 +1,54 @@
+﻿<Window x:Class="ChronoTask.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="SignUp" Height="500" Width="800">
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#00FFFF" Offset="1"/>
+                <GradientStop Color="#000033" Offset="0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <StackPanel>
+                <TextBlock Text="Registrasion" Style="{StaticResource TextBlockStyle}" Margin="0 10 0 0"/>
+                <TextBlock Text="Fill your personal info for registration" Style="{StaticResource NoramlText}" Margin="0 20 0 0" Opacity="0.8"/>
+                <Grid Margin="30 70 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.4*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="User Name" Style="{StaticResource textBlock}"/>
+                    <TextBlock Text="E-Mail" Grid.Row="1" Style="{StaticResource textBlock}"/>
+                    <TextBlock Text="Password" Grid.Row="2" Style="{StaticResource textBlock}"/>
+                    <TextBlock Text="Confirm Password" Grid.Row="3" Style="{StaticResource textBlock}"/>
+                    <TextBlock Text=": " Style="{StaticResource textBlock}" Grid.Column="1" Grid.Row="0"/>
+                    <TextBlock Text=": " Style="{StaticResource textBlock}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text=": " Style="{StaticResource textBlock}" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text=": " Style="{StaticResource textBlock}" Grid.Column="1" Grid.Row="3"/>
+
+
+                    <TextBox x:Name="UserName" Style="{StaticResource TextboxMail}" Margin="5"/>
+                    <TextBox x:Name="Email" Style="{StaticResource TextboxMail}" Grid.Row="1" Margin="5"/>
+                    <PasswordBox x:Name="pass" Style="{StaticResource passBox}" Grid.Row="2" Grid.Column="2" Margin="5"/>
+                    <PasswordBox x:Name="conPass" Style="{StaticResource passBox}" Grid.Row="3" Grid.Column="2" Margin="5"/>
+                </Grid>
+
+                <Button Click="Button_Click" Content="Register" Style="{StaticResource ButtonSignUP}" Margin="0 70 0 0" FontSize="20"/>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

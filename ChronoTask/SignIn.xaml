@@ -1,0 +1,79 @@
+﻿<Window x:Class="ChronoTask.SignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="SignIn" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#00FFFF" Offset="0"/>
+                    <GradientStop Color="#000033" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+
+                <StackPanel Margin="0 15 0 0">
+                    <TextBlock Text="Chrono Task" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock Text="Manage Your Task Free" Style="{StaticResource NoramlText}" Opacity="0.6"/>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Sign Up" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock Text="Enter your personal info and create new account to connect with us" Style="{StaticResource NoramlText}" Opacity="0.8" Margin="30 10 30 40"/>
+                    <Button Content="Sign Up" Style="{StaticResource ButtonSignUP}" Click="Button_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#bdbdbd" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel>
+                <TextBlock Text="Sign In To App" Style="{StaticResource TextBlockStyle}" Foreground="#1565c0" Padding="20"/>
+                <TextBlock Text="Enter E-mail and password to login" Style="{StaticResource NoramlText}" Foreground="#546e7a" Margin="0 30 0 0"/>
+                <Border Margin="10 80 10 0" Padding="10" CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.27*" />
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="TextEmail" Text="E-mail"  Style="{StaticResource textMail}"/>
+                        <TextBlock Text=": "  Grid.Column="1"  Style="{StaticResource textMail}"/>
+                        <TextBox x:Name="textEmail" Style="{StaticResource TextboxMail}" Margin="0 0 0 0"/>
+                    </Grid>
+                </Border>
+
+                <Border>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.27*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Password"  Style="{StaticResource textMail}" Margin="30 0 -10 0"/>
+                        <TextBlock Text=": "  Grid.Column="1"  Style="{StaticResource textMail}" Margin="25 0 0 0"/>
+                        <PasswordBox x:Name="passBox" Style="{StaticResource passBox}" BorderBrush="Transparent"/>
+                    </Grid>
+                </Border>
+                <Grid Margin="0 50 0 0">
+                    <StackPanel>
+                        <Button Content="Sign In" Style="{StaticResource SignIn}" Click="Button_Click_1"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,43 @@
+﻿<Window x:Class="ChronoTask.Start"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChronoTask"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Title="Start" Height="450" Width="800">
+    <Border CornerRadius="40">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#00FFFF" Offset="0"/>
+                <GradientStop Color="#000033" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="chronoLabel" Content="Chorono" Foreground="White" FontSize="60" FontWeight="Bold" Margin="0,170,0,0">
+                <Label.RenderTransform>
+                    <TranslateTransform X="-300"/>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="taskLabel" Content="Task 2.0" Foreground="White" FontSize="60" FontWeight="Bold" Margin="0 170,0,0" Grid.Column="1">
+                <Label.RenderTransform>
+                    <TranslateTransform X="300"/>
+                </Label.RenderTransform>
+            </Label>
+        </Grid>
+    </Border>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="chronoLabel" Storyboard.TargetProperty="(Label.RenderTransform).(TranslateTransform.X)" From="-300" To="142" Duration="0:0:1"/>
+                    <DoubleAnimation Storyboard.TargetName="taskLabel" Storyboard.TargetProperty="(Label.RenderTransform).(TranslateTransform.X)" From="300" To="0" Duration="0:0:1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+</Window>
