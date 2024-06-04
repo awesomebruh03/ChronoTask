@@ -1220,11 +1220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sajid\\Downloads\\ChronoTaskFinal-main(2)\\ChronoTaskFinal-main\\ChronoTask\\ChronoTask.csproj",
+      "projectUniqueName": "C:\\Users\\Sajid\\Downloads\\ChronoTaskFinal-main(1)\\ChronoTaskFinal-main(2)\\ChronoTaskFinal-main\\ChronoTask\\ChronoTask.csproj",
       "projectName": "ChronoTask",
-      "projectPath": "C:\\Users\\Sajid\\Downloads\\ChronoTaskFinal-main(2)\\ChronoTaskFinal-main\\ChronoTask\\ChronoTask.csproj",
+      "projectPath": "C:\\Users\\Sajid\\Downloads\\ChronoTaskFinal-main(1)\\ChronoTaskFinal-main(2)\\ChronoTaskFinal-main\\ChronoTask\\ChronoTask.csproj",
       "packagesPath": "C:\\Users\\Sajid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sajid\\Downloads\\ChronoTaskFinal-main(2)\\ChronoTaskFinal-main\\ChronoTask\\obj\\",
+      "outputPath": "C:\\Users\\Sajid\\Downloads\\ChronoTaskFinal-main(1)\\ChronoTaskFinal-main(2)\\ChronoTaskFinal-main\\ChronoTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sajid\\AppData\\Roaming\\NuGet\\NuGet.Config",

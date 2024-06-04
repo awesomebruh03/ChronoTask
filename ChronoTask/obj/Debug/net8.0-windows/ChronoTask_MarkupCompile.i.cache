@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sajid\Downloads\ChronoTaskFinal-main(2)\ChronoTaskFinal-main\ChronoTask\obj\Debug\net8.0-windows\
+C:\Users\Sajid\Downloads\ChronoTaskFinal-main(1)\ChronoTaskFinal-main(2)\ChronoTaskFinal-main\ChronoTask\obj\Debug\net8.0-windows\
 ChronoTask
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Sajid\Downloads\ChronoTaskFinal-main(2)\ChronoTaskFinal-main\ChronoTask\App.xaml
+C:\Users\Sajid\Downloads\ChronoTaskFinal-main(1)\ChronoTaskFinal-main(2)\ChronoTaskFinal-main\ChronoTask\App.xaml
 9-1994218568
 
 18-1719509123
 203910371622
 AddProjectDialog.xaml;AddTaskDialog.xaml;MainWindow.xaml;SignIn.xaml;SignUp.xaml;Start.xaml;TimePicker.xaml;UpdateProjectDialog.xaml;UpdateTaskDialog.xaml;
 
-True
+False
 

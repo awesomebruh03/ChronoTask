@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SQLite;
+using System.Threading.Tasks;
+using System.Windows.Documents;
 
 public static class DatabaseHelper
 {
+    public static int currentUserId;
     private const string ConnectionString = "Data Source=chronotask.db;Version=3;";
 
     public static void InitializeDatabase()
@@ -15,7 +18,9 @@ public static class DatabaseHelper
             string createProjectsTableQuery = @"
                 CREATE TABLE IF NOT EXISTS Projects (
                     ProjectId INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Name TEXT NOT NULL
+                    Name TEXT NOT NULL,
+                    UserId INTEGER NOT NULL,
+                    FOREIGN KEY (UserId) REFERENCES Users(UserId)
                 )";
             string createTasksTableQuery = @"
                 CREATE TABLE IF NOT EXISTS Tasks (
@@ -34,6 +39,11 @@ public static class DatabaseHelper
                 UserName TEXT NOT NULL,
                 UserPassword TEXT NOT NULL
             )";
+
+            using (var command = new SQLiteCommand(createUserTableQuery, connection))
+            {
+                command.ExecuteNonQuery();
+            }
             using (var command = new SQLiteCommand(createProjectsTableQuery, connection))
             {
                 command.ExecuteNonQuery();
@@ -43,10 +53,7 @@ public static class DatabaseHelper
             {
                 command.ExecuteNonQuery();
             }
-            using(var command = new SQLiteCommand(createUserTableQuery, connection))
-            {
-                command.ExecuteNonQuery();
-            }
+            
         }
     }
 
@@ -67,20 +74,43 @@ public static class DatabaseHelper
         }
     }
 
-    public static bool ValidateUser(string Email, string password)
+    public static User ValidateUser(string Email, string password)
     {
         using (var connection = new SQLiteConnection(ConnectionString))
         {
             connection.Open();
-            string query = "SELECT COUNT(1) FROM Users WHERE Email = @Email AND UserPassword = @UserPassword";
+
+
+            string query = "SELECT * FROM Users WHERE Email = @Email AND UserPassword = @UserPassword";
+
             using (var command = new SQLiteCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@Email", Email);
                 command.Parameters.AddWithValue("@UserPassword", password);
-                return Convert.ToInt32(command.ExecuteScalar()) > 0;
+
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new User
+                        {
+                            userId = reader.GetInt32(0),
+                            Email = reader.GetString(1),
+                            userName = reader.GetString(2),
+                            userPassword = reader.GetString(3)
+                        };
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+
             }
         }
     }
+
 
     public static bool EmailExists(string email)
     {
@@ -101,14 +131,16 @@ public static class DatabaseHelper
         using (var connection = new SQLiteConnection(ConnectionString))
         {
             connection.Open();
-            string query = "INSERT INTO Projects (Name) VALUES (@Name)";
+            string query = "INSERT INTO Projects (Name, UserId) VALUES (@Name, @UserId)";
             using (var command = new SQLiteCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@Name", name);
+                command.Parameters.AddWithValue("@UserId", currentUserId);
                 command.ExecuteNonQuery();
             }
         }
     }
+
 
 
     public static void AddTask(int projectId, string name, string description, DateTime? startTime, DateTime? endTime)
@@ -137,22 +169,27 @@ public static class DatabaseHelper
         using (var connection = new SQLiteConnection(ConnectionString))
         {
             connection.Open();
-            string query = "SELECT * FROM Projects";
+            string query = "SELECT * FROM Projects WHERE UserId = @UserId";
             using (var command = new SQLiteCommand(query, connection))
-            using (var reader = command.ExecuteReader())
             {
-                while (reader.Read())
+                command.Parameters.AddWithValue("@UserId", currentUserId);
+                using (var reader = command.ExecuteReader())
                 {
-                    projects.Add(new Project
+                    while (reader.Read())
                     {
-                        ProjectId = reader.GetInt32(0),
-                        Name = reader.GetString(1)
-                    });
+                        projects.Add(new Project
+                        {
+                            ProjectId = reader.GetInt32(0),
+                            Name = reader.GetString(2),
+                            
+                        });
+                    }
                 }
             }
         }
         return projects;
     }
+
 
 
     public static List<Task> GetTasks(int projectId)

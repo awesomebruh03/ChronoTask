@@ -22,13 +22,14 @@ namespace ChronoTask
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
             string email = textEmail.Text;
             string password = passBox.Password;
 
-            if (DatabaseHelper.ValidateUser(email, password))
+            User user = DatabaseHelper.ValidateUser(email, password);
+            if (user != null)
             {
                 MainWindow mainWindow = new MainWindow();
+                DatabaseHelper.currentUserId = user.userId; // Assuming MainWindow has a CurrentUserId property
                 mainWindow.Show();
                 this.Close();
             }
@@ -36,11 +37,7 @@ namespace ChronoTask
             {
                 MessageBox.Show("Invalid email or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
+
     }
-
-
-
-
 }

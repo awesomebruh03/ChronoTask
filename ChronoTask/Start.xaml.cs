@@ -9,6 +9,7 @@ namespace ChronoTask
         public Start()
         {
             InitializeComponent();
+            DatabaseHelper.InitializeDatabase();
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(3);

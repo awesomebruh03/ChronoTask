@@ -19,7 +19,6 @@ namespace ChronoTask
         public MainWindow()
         {
             InitializeComponent();
-            DatabaseHelper.InitializeDatabase();
             this.ResizeMode = ResizeMode.NoResize;
             this.ResizeMode = ResizeMode.CanMinimize;
             LoadProjects();
