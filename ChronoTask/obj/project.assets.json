@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {
+    "net8.0-windows10.0.22621": {
       "EntityFramework/6.4.4": {
         "type": "package",
         "dependencies": {
@@ -1210,7 +1210,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": [
+    "net8.0-windows10.0.22621": [
       "System.Data.SQLite >= 1.0.118"
     ]
   },
@@ -1220,26 +1220,26 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sajid\\Source\\Repos\\ChronoTask\\ChronoTask\\ChronoTask.csproj",
+      "projectUniqueName": "C:\\Users\\Sajid\\source\\repos\\ChronoTask\\ChronoTask\\ChronoTask.csproj",
       "projectName": "ChronoTask",
-      "projectPath": "C:\\Users\\Sajid\\Source\\Repos\\ChronoTask\\ChronoTask\\ChronoTask.csproj",
+      "projectPath": "C:\\Users\\Sajid\\source\\repos\\ChronoTask\\ChronoTask\\ChronoTask.csproj",
       "packagesPath": "C:\\Users\\Sajid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sajid\\Source\\Repos\\ChronoTask\\ChronoTask\\obj\\",
+      "outputPath": "C:\\Users\\Sajid\\source\\repos\\ChronoTask\\ChronoTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sajid\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0-windows"
+        "net8.0-windows10.0.22621.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0-windows7.0": {
-          "targetAlias": "net8.0-windows",
+        "net8.0-windows10.0.22621": {
+          "targetAlias": "net8.0-windows10.0.22621.0",
           "projectReferences": {}
         }
       },
@@ -1255,8 +1255,8 @@
       }
     },
     "frameworks": {
-      "net8.0-windows7.0": {
-        "targetAlias": "net8.0-windows",
+      "net8.0-windows10.0.22621": {
+        "targetAlias": "net8.0-windows10.0.22621.0",
         "dependencies": {
           "System.Data.SQLite": {
             "target": "Package",
@@ -1274,8 +1274,17 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.Windows.SDK.NET.Ref",
+            "version": "[10.0.22621.31, 10.0.22621.31]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.Windows.SDK.NET.Ref": {
             "privateAssets": "all"
           },
           "Microsoft.WindowsDesktop.App.WPF": {

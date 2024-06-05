@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChronoTask"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
-        Title="Start" Height="450" Width="800">
+        Title="ChronoTask" Height="450" Width="800">
     <Border CornerRadius="40">
         <Border.Background>
             <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">

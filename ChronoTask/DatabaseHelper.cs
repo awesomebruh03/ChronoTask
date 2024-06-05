@@ -180,7 +180,7 @@ public static class DatabaseHelper
                         projects.Add(new Project
                         {
                             ProjectId = reader.GetInt32(0),
-                            Name = reader.GetString(2),
+                            Name = reader.GetString(1),
                             
                         });
                     }
