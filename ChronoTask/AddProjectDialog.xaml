@@ -1,0 +1,23 @@
+﻿<Window x:Class="ChronoTask.AddProjectDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        Title="Add Project" Height="150" Width="300">
+    
+
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                <GradientStop Color="#00FFFF" Offset="1"/>
+                <GradientStop Color="#000033" Offset="0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <StackPanel>
+                <Label Content="Project Name:" Foreground="White" Margin="5 0 0 0" />
+                <TextBox x:Name="ProjectNameTextBox" Margin="0 0 0 0"  Text="Name" Width="270" HorizontalAlignment="Center" GotFocus="ProjectNameTextBox_GotFocus" LostFocus="ProjectNameTextBox_LostFocus" />
+                <Button Content="Save" Click="SaveButton_Click" Margin="0 30 0 0" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

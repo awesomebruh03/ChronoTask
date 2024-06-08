@@ -1,0 +1,21 @@
+﻿<Window x:Class="ChronoTask.UpdateProjectDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        Title="Update Project" Height="150" Width="300">
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                <GradientStop Color="#00FFFF" Offset="1"/>
+                <GradientStop Color="#000033" Offset="0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <StackPanel>
+                <Label Content="Project Name:" Foreground="White" Margin="5 0 0 0" />
+                <TextBox x:Name="ProjectNameTextBox" Margin="0 0 0 0" Width="270" HorizontalAlignment="Center" />
+                <Button Content="Save" Click="SaveButton_Click" Margin="0 30 0 0" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

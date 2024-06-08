@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="ChronoTask.TimePicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="30" Width="200">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="HoursTextBox" Width="50" Margin="5" Text="HH" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderBrush="Transparent"/>
+            <TextBlock Text=":" VerticalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="MinutesTextBox" Width="50" Margin="5" Text="MM" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderBrush="Transparent"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
